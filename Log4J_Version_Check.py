@@ -22,5 +22,8 @@ if os.path.isfile(jarFile):
 	manifestParser = configparser.ConfigParser(delimiters=':',strict=False)
 	manifestParser.read_file(open("META-INF/MANIFEST.MF", "rt"))
 	print("Log4J Version is: " + manifestParser.get("Deafult","Implementation-Version"))
+	
+	os.remove("META-INF/MANIFEST.MF")
+	os.removedirs("META-INF")
 else:
 	print("File Doesn't Exist!")
